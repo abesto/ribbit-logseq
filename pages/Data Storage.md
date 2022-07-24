@@ -1,3 +1,5 @@
+public:: true
+
 - Climate data is analyzed at the scale of years to decades. Yes, we want to enable fast feedback and encourage fast action; but it seems to me that choosing to not (or failing to) provide historical data for the whole lifetime of the project would be a missed opportunity.
 - This means storing a ridiculous amount of time-series data. The cost can likely be managed by degrading the resolution of past data
 	- Across time (standard feature in time-series storages)

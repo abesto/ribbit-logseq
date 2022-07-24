@@ -1,3 +1,5 @@
+public:: true
+
 - # Context
 - Assume Ribbit Network sees adoption in line with 80% optimistic guesses. Like, maybe hundreds of sensors in a year, thousands / tens of thousands in 2-5 years. What does this mean for the impact of the project, and what kind of risks would this success create? Doing badly along some of these items would likely limit adoption; I want to explore these risks, _assuming_ adoption goes great.
 - ## Why think about this?

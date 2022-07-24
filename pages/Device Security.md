@@ -1,3 +1,5 @@
+public:: true
+
 - TODO write this
 - access to private network where device is deployed makes it a sweet target (IoT problem)
 - wipe on disconnect

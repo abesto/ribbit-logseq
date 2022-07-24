@@ -1,3 +1,5 @@
+public:: true
+
 - The obvious first question is: what's our [[Threat Model]]? Click through for my current best idea.
 - Let's then investigate the main (?) central pieces of infrastructure for the Ribbit Network:
 	- Fleet Management, Software distribution channels

@@ -1,3 +1,5 @@
+public:: true
+
 - # Strategic Bad Actors
   id:: 62dd66f0-1d6e-4bef-8548-a3e85a8ecc1d
 - Why would anyone want to hurt the Ribbit Network? Well, anyone whose goals are not aligned with the project, AND feeling like the project sufficiently threatens their interests. What are the relevant goals of the Ribbit Network project then? To provide data to steer and measure the impact of local action and policy.
