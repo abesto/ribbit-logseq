@@ -1,9 +1,27 @@
 public:: true
 
-- TODO write this
-- access to private network where device is deployed makes it a sweet target (IoT problem)
-- wipe on disconnect
-- allowlist known-good locations?
-- network security and access control and access reporting / detection
-- two-factor auth even?
-- Basically, a device is untrusted by default
+- # Overview
+- In ITSec terms, Ribbit sensors are appliances
+	- Running command-and-control (C&C) software for fleet management (i.e. the Balena agent)
+	- Running custom software rolled out via the C&C software
+	- In an untrusted environment (no amount of tampering would be surprising)
+	- On home networks (with all this implies around IoT security)
+	- Collect and report metrics to a central location that are not individually *too* valuable, but are extremely valuable in aggregate
+- TL;DR: by default a device should be untrusted by *both* the Ribbit Network (is a malicious actor running the device?) *and* the owner (did hackers install a spam network node on the sensor?)
+- # Risks of a Compromise
+- Access to private network where device is deployed makes it a sweet target (IoT problem)
+	- Recommend / provide guides on deploying in a DMZ?
+- Any malicious network activity originating from the device may be attributed to the owner
+	- Restrict the networking environment somehow such that the device only has access to the C&C server and the data ingestion endpoint? (And is only accessible by C&C and [[Monitoring]] )
+- Botnets are bad, d'uh
+- # Ideas for Security Measures
+- Not comprehensive, just a few things off the cuff
+- Attack vector: exploits on device
+	- Possible mitigation: firewall all incoming connections except monitoring and C&C (how do you identify those? Probably client certs)
+	- Control access (i.e. SSH, but also any web UI provided by the device). Log / notify about unexpected / weird acceess.
+- Attack vector: ((62dd66f0-1d6e-4bef-8548-a3e85a8ecc1d)) can ((62dd74c5-f4c9-4117-9fa5-4521d1ea2795))
+	- Possible mitigation: startup requires secret known by the owner. Limitation: kind of a pain in the butt.
+	- Possible mitigation: try to detect if the device was unexpectedly moved. Naively: store hostname + lat/long centrally, block measurements if there's a mismatch in reported lat/long _and notify the owner in case the move is expected_. This rapidly becomes an arms race:
+		- Attacker sets a new hostname to hopefully auto-register the new location as correct. Possible mitigation: look up hostname by IP in Balena and don't accept data from unknown hostnames. Attacker then spoofs lat/long data. Possible mitigation: manually maintain known location (known owner must update location data, maybe through a website, requiring 2FA)
+		- ((62dd84e0-ba3b-43ee-a0f3-4e02538d9808))
+- Regularly automatically verify the integrity of the software running on the device against known checksums / other signatures of the software that *should* be running. Possibly drive this process remotely. Block measurements from the device, report to owner / Ribbit Network on mismatch.

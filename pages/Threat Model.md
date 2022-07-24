@@ -5,10 +5,12 @@ public:: true
 - Why would anyone want to hurt the Ribbit Network? Well, anyone whose goals are not aligned with the project, AND feeling like the project sufficiently threatens their interests. What are the relevant goals of the Ribbit Network project then? To provide data to steer and measure the impact of local action and policy.
 - I don't think we need to be overly concerned about the "local action" category of bad actors; grassroots movements tend to be on the pro-green side. However, we _may_ worry about government / industrial action at a local level
 - ## Local Strategic Bad Actors
-	- Physically locate sensors ([[Privacy]] and [[Physical Security]] become important here), and
+  id:: 62dd74c5-2688-4c6e-9b4a-c3821f34e867
+	- Physically locate sensors ([[Privacy]] and [[Device Security]] become important here), and
 		- Compel the owner to disconnect them
 		- Interfere with its operation in some hard-to-detect way
 		- Steal it (and then possibly run it in a controlled environment to green-wash the area)
+		  id:: 62dd74c5-f4c9-4117-9fa5-4521d1ea2795
 			- There should be a **reporting channel** in place for stolen sensors, which should then be possible to **block** in a way impossible to circumvent by a motivated adversary
 		- Just smash it up with a baseball bat
 	- Outlaw the sensor?
@@ -26,8 +28,10 @@ public:: true
 - If a strategic bad actor is incentivized to take more direct action, there are a few different approaches we may expect:
 	- Inject bad data
 		- Reverse-engineer the network protocol, inject arbitrary measurements (mitigation: [[Data Provenance]], [[Secret Management]], [[Device Security]] )
+		  id:: 62dd74c5-60d8-4e60-ae82-0b7a76efca19
 		- Purchase Ribbit sensors, and tamper with them (mitigation: even harder [[Data Provenance]], including at the hardware level)
 		- Purchase Ribbit sensors, and run them in environment-controlled rooms
+		  id:: 62dd74c5-1219-4252-8ca3-1be9afe72cd2
 			- Mitigation: outlier / spam detection methods maybe? This can rapidly turn into an arms race (e.g. detect many sensors in the same location -> fake the GPS location -> detect many sensors on the same IP -> route them through different networks, physically move them to many separate locations)
 			- The big question here is: **how would we notice**?
 	- Change existing data (again, [[Data Provenance]] can at least partially help here)

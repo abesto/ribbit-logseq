@@ -1,3 +1,11 @@
 public:: true
 
-- TODO write this
+- Currently we store and display the lat/long/alt of devices. Given that these devices live on private property, and on the internets you don't generally advertise your home address, this is a potential concern. Especially given the possible existence of ((62dd74c5-2688-4c6e-9b4a-c3821f34e867)).
+	- We might want to apply some stable jitter ("salt"?) to the displayed location. Or round the long/lat. And possibly not even display the numbers.
+	- This must be weighed against how useful the data is, given some specific accuracy in location reporting.
+	- Possibly we could expose simple controls that allow users to pick their trade-off on this axis. Possibly we can default this setting on new devices to the average in the same area.
+- ((62dd8ec6-900f-42fb-845d-81372183e934))
+	- Currently we report hostnames. A motivated adversary can take dumps from different points in time, look for hostnames whose locations changed significantly between the two, and so learn where (and roughly when) someone moved. This is absolutely not information that Ribbit should leak, so **let's not report hostnames** or any other unique sensor identifier on public surfaces / datasets.
+- Ribbit sensors are cute, and people want to show them off. This is lovely. Except if there's a known vulnerability, and you have one sitting on your home network, well visible in your window. So [[Device Security]] plays a role here.
+- We have a responsibility to educate Ribbit sensor owners about the potential privacy risk they're taking on by any public communication about the fact that they own a sensor, especially while adoption in a given area is low.
+	- I saw someone post about how they painted their sensor a specific color. There's a total of ~7 live sensors at the moment. With a little digging I can probably figure out which country / state that person lives in, at which point I'll know *EXACTLY* where they live. I'm choosing to not do this, but they should be aware that this is possible (and we should make it as hard as possible, or even impossible)
